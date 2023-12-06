@@ -1,0 +1,34 @@
+R1=470
+R2=R3=24K
+R8=R9=47K
+VIN=20mV
+VOUT=2,5V
+f=3000
+
+
+5.1 Schema trebuie să transfere domeniul de intrare specificat (-Vim, +Vim) în domeniul de ieșire
+specificat (-Vom, +Vom). Puteți modifica doar R1.
+
+A = (1 + (R2+R3)/R1)*(-R5/R4)*(1+R11/R10)
+
+A=VOUT/VIN=-125
+
+MODIFIC R1
+A = (1 + (R2+R3)/R1')*(-R5/R4)*(1+R11/R10)
+-125 = (1 + (24K+24K)/R1')*(-1)*3/2
+R1'=144000/247 = 582.99===>>> CONFORM E24 => R1'=560
+
+
+SE REALIZEAZA SIMULAREA
+
+5.2 Schema trebuie să aibă frecvența de -3dB specificată.
+
+f=3000
+
+
+2*pi*f=1/sqrt(R8*R9*C1*C2)
+R8=R9 && C1=C2
+2*pi*f=1/(R8*C1)
+R8=1/(2*pi*f*C1)=1/(2*3.14*3000*100*10^(-9))=25*10^4/471=530.78 =====>>> CONFORM E24 => R8=510
+
+SE REALIZEAZA SIMULAREA
